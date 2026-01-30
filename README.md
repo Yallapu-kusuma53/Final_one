@@ -185,9 +185,3 @@ Analytics dashboard
 Mobile app support
 
 Email / SMS notifications
-
- 
-
- 
- 
-✔ GitHub professional
