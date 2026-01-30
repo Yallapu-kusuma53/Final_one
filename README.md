@@ -1,187 +1,163 @@
-🅿️ Smart Parking Slot Booking System
+# 🅿️ Smart Parking Slot Booking System
 
-A full-stack Smart Parking Slot Booking System that allows users to book parking slots, track parking duration, and simulate payments, with an admin panel for managing locations, slots, and bookings.
+A full-stack **Smart Parking Slot Booking System** that allows users to book parking slots, track parking duration, and simulate payments, with an admin panel for managing locations, slots, and bookings.
 
-✨ Features
-👤 User Features
+---
 
-User registration & secure login (JWT-based authentication)
+## ✨ Features
 
-Profile management
+### 👤 User Features
+- User registration and secure login (JWT-based authentication)
+- Profile management
+- Browse parking locations and available slots
+- Book parking slots with vehicle details
+- Real-time parking timer (check-in and check-out)
+- Automatic parking duration calculation
+- Dynamic parking fee calculation
+- View booking history (Active / Completed / Cancelled)
 
-Browse parking locations and available slots
+---
 
-Book parking slots with vehicle details
+### 🔧 Admin Features
+- Add and manage parking locations
+- Create, update, and delete parking slots
+- Enable or disable slots (maintenance mode)
+- View all user bookings
+- Monitor real-time slot occupancy
+- Track revenue and usage statistics
 
-Real-time parking timer (check-in & check-out)
+---
 
-Automatic duration calculation
+## 🛠️ Technologies Used
 
-Dynamic parking fee calculation
+### Frontend
+- React 18
+- Vite
+- Tailwind CSS
+- React Router
+- Axios
 
-View booking history (Active / Completed / Cancelled)
+### Backend
+- Java 17
+- Spring Boot 3
+- Spring Security (JWT Authentication)
+- Spring Data JPA
+- Hibernate
+- MySQL
+- Maven
 
-🔧 Admin Features
+---
 
-Add and manage parking locations
+## 📦 Installation & Setup
 
-Create, update, and delete parking slots
+### Prerequisites
+- Java 17 or higher
+- Maven
+- MySQL
+- Node.js (for frontend)
 
-Enable / disable slots (maintenance mode)
+---
 
-View all user bookings
+### 🔹 Backend Setup (Spring Boot)
 
-Monitor slot occupancy
-
-Track revenue and usage statistics
-
-🛠️ Technologies Used
-Frontend
-
-React 18
-
-Vite
-
-Tailwind CSS
-
-React Router
-
-Axios
-
-Backend
-
-Java 17
-
-Spring Boot 3
-
-Spring Security (JWT Authentication)
-
-Spring Data JPA
-
-Hibernate
-
-MySQL
-
-Maven
-
-📦 Installation & Setup
-Prerequisites
-
-Java 17+
-
-Maven
-
-MySQL
-
-Node.js (for frontend)
-
-🔹 Backend Setup (Spring Boot)
-
-Clone the repository
-
+```bash
 git clone https://github.com/yourusername/smart-parking-system.git
 cd smart-parking-system/backend
+```
 
+Edit `application.properties`:
 
-Configure database & secrets
-Edit application.properties (use environment variables for secrets):
-
+```properties
 spring.datasource.url=jdbc:mysql://localhost:3306/parkease_db
 spring.datasource.username=${DB_USERNAME}
 spring.datasource.password=${DB_PASSWORD}
 
 jwt.secret=${JWT_SECRET}
 jwt.expiration=86400000
+```
 
-
-Run backend
-
+Run backend:
+```bash
 mvn spring-boot:run
-
+```
 
 Backend runs on:
-
+```
 http://localhost:5001
+```
 
-🔹 Frontend Setup (React)
+---
+
+### 🔹 Frontend Setup (React)
+
+```bash
 cd ../frontend
 npm install
 npm run dev
-
+```
 
 Frontend runs on:
-
+```
 http://localhost:5173
+```
 
-🔌 API Endpoints (Backend)
-Authentication
+---
 
-POST /api/auth/register – Register user
+## 🔌 API Endpoints
 
-POST /api/auth/login – Login user
+### Authentication
+- POST `/api/auth/register`
+- POST `/api/auth/login`
+- GET `/api/auth/profile`
 
-GET /api/auth/profile – Get user profile
+### Parking Locations
+- GET `/api/locations`
+- POST `/api/locations`
+- PUT `/api/locations/{id}`
+- DELETE `/api/locations/{id}`
 
-Parking Locations
+### Parking Slots
+- GET `/api/slots`
+- GET `/api/slots/location/{locationId}`
+- POST `/api/slots`
 
-GET /api/locations – Get all locations
+### Bookings
+- POST `/api/bookings`
+- GET `/api/bookings/user`
+- POST `/api/bookings/{id}/complete`
+- POST `/api/bookings/{id}/cancel`
 
-POST /api/locations – Add location (Admin)
+---
 
-PUT /api/locations/{id} – Update location
+## 📊 Database Schema
+- Users
+- Parking Locations
+- Parking Slots
+- Vehicles
+- Bookings
 
-DELETE /api/locations/{id} – Delete location
+Defined in `schema.sql`.
 
-Parking Slots
+---
 
-GET /api/slots – Get all slots
+## 🔒 Security
+- JWT-based authentication
+- BCrypt password encryption
+- Stateless session management
+- Role-based access (USER / ADMIN)
 
-GET /api/slots/location/{locationId} – Slots by location
+---
 
-POST /api/slots – Create slot (Admin)
+## 🚀 Future Enhancements
+- Online payment integration
+- QR code check-in
+- Analytics dashboard
+- Mobile app
+- Email/SMS notifications
 
-Bookings
+---
 
-POST /api/bookings – Create booking
-
-GET /api/bookings/user – User bookings
-
-POST /api/bookings/{id}/complete – Complete booking
-
-POST /api/bookings/{id}/cancel – Cancel booking
-
-📊 Database Schema (MySQL)
-
-Users
-
-Parking Locations
-
-Parking Slots
-
-Vehicles
-
-Bookings
-
-Database structure is defined in schema.sql
-
-🔒 Security
-
-JWT-based authentication
-
-Password encryption using BCrypt
-
-Stateless session management
-
-Role-based access (USER / ADMIN)
-
-🚀 Future Enhancements
-
-Online payment gateway integration
-
-QR code scanning for check-in
-
-Analytics dashboard
-
-Mobile app support
-
-Email / SMS notifications
+## 👩‍💻 Author
+**Yallapu Kusuma**  
+Java Full Stack Developer  
+Spring Boot | React | MySQL
